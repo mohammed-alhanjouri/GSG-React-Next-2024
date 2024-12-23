@@ -21,8 +21,20 @@ const CalcApp = () => {
       <h1>Calculator</h1>
 
       {/* Display Section */}
-      <div className="display">
+
+      {/* <div className="display">
         {result !== null ? `${input} = ${result}` : input || "0"}
+      </div> */}
+
+      <div className="display">
+        {result !== null ? (
+          <>
+            <span>{`${input} = `}</span>
+            <span className="result">{result}</span>
+          </>
+        ) : (
+          input || "0"
+        )}
       </div>
 
       {/* Clear Button */}

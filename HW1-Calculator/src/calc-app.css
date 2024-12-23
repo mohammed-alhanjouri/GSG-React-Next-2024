@@ -80,4 +80,10 @@
     cursor: pointer;
     grid-column: span 3;
 }
+
+/* Result styling */
+.result {
+    color: #0099cc;
+    font-weight: bold; 
+}  
   
