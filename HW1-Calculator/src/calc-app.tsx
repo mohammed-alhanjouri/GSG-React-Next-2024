@@ -18,7 +18,7 @@ const CalcApp = () => {
 
   return (
     <div className="container">
-      <h1>Calculator</h1>
+      <h1 style={{ color: "#3366cc" }}>Calculator</h1>
 
       {/* Display Section */}
 
