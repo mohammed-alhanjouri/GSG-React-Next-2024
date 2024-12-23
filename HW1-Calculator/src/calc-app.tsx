@@ -1,21 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-const CalcApp: React.FC = () => {
-  // Declare state variables for input and result
-  const [input, setInput] = useState(""); // Holds the current input string
-  const [result, setResult] = useState<number | null>(null); // Holds the calculated result
+const CalcApp = () => {
+  const [input, setInput] = useState("");
+  const [result, setResult] = useState<number | null>(null);
 
-  // Handles button clicks
   const handleClick = (value: string) => {
     if (value === "C") {
-      // Clear the input and result
       setInput("");
       setResult(null);
     } else if (value === "=") {
-      // Evaluate the input string as a mathematical expression
-      setResult(eval(input)); // WARNING: Using `eval` is risky and can cause security issues.
+      setResult(eval(input));
     } else {
-      // Append the clicked value to the input
       setInput(input + value);
     }
   };
@@ -23,112 +18,111 @@ const CalcApp: React.FC = () => {
   return (
     <div
       style={{
-        textAlign: "center", // Center align text
-        marginTop: "50px", // Add spacing from the top
-        fontFamily: "Arial, sans-serif", // Set font
+        textAlign: "center",
+        marginTop: "50px",
+        fontFamily: "Arial, sans-serif",
       }}
     >
       <h1>Calculator</h1>
       {/* Display section */}
       <div
         style={{
-          width: "300px", // Fixed width for display
-          height: "50px", // Fixed height for display
-          margin: "10px auto", // Center display and add margin
-          padding: "10px", // Add padding inside the display
-          fontSize: "1.5em", // Set font size
-          textAlign: "right", // Align text to the right
-          backgroundColor: "#f1f5f9", // Light background color
-          border: "1px solid #ccc", // Border with a light gray color
-          borderRadius: "8px", // Rounded corners
+          width: "300px",
+          height: "50px",
+          margin: "10px auto",
+          padding: "10px",
+          fontSize: "1.5em",
+          textAlign: "right",
+          backgroundColor: "#f1f5f9",
+          border: "1px solid #ccc",
+          borderRadius: "8px",
         }}
       >
-        {/* Show either the result with the input or just the input, fallback to "0" if empty */}
         {result !== null ? `${input} = ${result}` : input || "0"}
       </div>
 
       {/* Buttons grid */}
       <div
         style={{
-          display: "grid", // Use grid layout for buttons
-          gridTemplateColumns: "repeat(3, 80px)", // Three columns of fixed width
-          gap: "10px", // Space between buttons
-          justifyContent: "center", // Center the grid
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 80px)",
+          gap: "10px",
+          justifyContent: "center",
         }}
       >
         {/* Number Buttons */}
         {["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"].map((num) => (
           <button
-            key={num} // Unique key for each button
-            onClick={() => handleClick(num)} // Handle button click
+            key={num}
+            onClick={() => handleClick(num)}
             style={{
-              width: "80px", // Fixed width
-              height: "80px", // Fixed height
-              backgroundColor: "#3b82f6", // Blue background
-              color: "white", // White text color
-              fontSize: "1.5em", // Larger text size
-              border: "none", // No border
-              borderRadius: "10px", // Rounded corners
-              cursor: "pointer", // Pointer cursor on hover
+              width: "80px",
+              height: "80px",
+              backgroundColor: "#3b82f6",
+              color: "white",
+              fontSize: "1.5em",
+              border: "none",
+              borderRadius: "10px",
+              cursor: "pointer",
             }}
           >
-            {num} {/* Display the button value */}
+            {num}
           </button>
         ))}
 
         {/* Operator Buttons */}
         {["+", "-"].map((op) => (
           <button
-            key={op} // Unique key for each operator
-            onClick={() => handleClick(op)} // Handle operator click
+            key={op}
+            onClick={() => handleClick(op)}
             style={{
-              width: "80px", // Fixed width
-              height: "80px", // Fixed height
-              backgroundColor: "#f59e0b", // Orange background
-              color: "white", // White text color
-              fontSize: "1.5em", // Larger text size
-              border: "none", // No border
-              borderRadius: "10px", // Rounded corners
-              cursor: "pointer", // Pointer cursor on hover
+              width: "80px",
+              height: "80px",
+              backgroundColor: "#f59e0b",
+              color: "white",
+              fontSize: "1.5em",
+              border: "none",
+              borderRadius: "10px",
+              cursor: "pointer",
             }}
           >
-            {op} {/* Display the operator */}
+            {op}
           </button>
         ))}
 
         {/* Clear Button */}
         <button
-          onClick={() => handleClick("C")} // Handle clear button click
+          onClick={() => handleClick("C")}
           style={{
-            width: "80px", // Fixed width
-            height: "80px", // Fixed height
-            backgroundColor: "#ef4444", // Red background
-            color: "white", // White text color
-            fontSize: "1.5em", // Larger text size
-            border: "none", // No border
-            borderRadius: "10px", // Rounded corners
-            cursor: "pointer", // Pointer cursor on hover
+            width: "80px",
+            height: "80px",
+            backgroundColor: "#ef4444",
+            color: "white",
+            fontSize: "1.5em",
+            border: "none",
+            borderRadius: "10px",
+            cursor: "pointer",
           }}
         >
-          C {/* Clear button label */}
+          C
         </button>
 
         {/* Equals Button */}
         <button
-          onClick={() => handleClick("=")} // Handle equals button click
+          onClick={() => handleClick("=")}
           style={{
-            width: "260px", // Wider button spanning three columns
-            height: "80px", // Fixed height
-            backgroundColor: "#10b981", // Green background
-            color: "white", // White text color
-            fontSize: "1.5em", // Larger text size
-            border: "none", // No border
-            borderRadius: "10px", // Rounded corners
-            cursor: "pointer", // Pointer cursor on hover
-            gridColumn: "span 3", // Span across 3 columns
+            width: "260px",
+            height: "80px",
+            backgroundColor: "#10b981",
+            color: "white",
+            fontSize: "1.5em",
+            border: "none",
+            borderRadius: "10px",
+            cursor: "pointer",
+            gridColumn: "span 3",
           }}
         >
-          = {/* Equals button label */}
+          =
         </button>
       </div>
     </div>
