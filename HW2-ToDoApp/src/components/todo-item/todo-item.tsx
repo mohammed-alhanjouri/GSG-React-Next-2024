@@ -3,13 +3,16 @@ import IToDo from "../types";
 
 interface IToDoItemProps {
   todo: IToDo;
+  onDelete: () => void;
 }
-const ToDoItem = ({ todo }: IToDoItemProps) => {
+const ToDoItem = ({ todo, onDelete }: IToDoItemProps) => {
   return (
     <div className="item-container">
       <input type="checkbox" name="isCompleted" />
       <span>Task Title is here! {todo.title}</span>
-      <span>🗑️</span>
+      <span style={{ cursor: "pointer" }} onClick={onDelete}>
+        🗑️{" "}
+      </span>
     </div>
   );
 };

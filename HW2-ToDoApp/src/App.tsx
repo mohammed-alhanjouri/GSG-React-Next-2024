@@ -9,8 +9,17 @@ import dayjs from "dayjs";
 function App() {
   const [todos, setTodos] = useState<IToDo[]>([]);
 
-  const handleNewTodo = (todo: IToDo) => {
+  const newTodo = (todo: IToDo) => {
     setTodos([...todos, todo]);
+  };
+
+  const deleteTodo = (index: number) => {
+    if (confirm("Are you sure you want to delete this ToDo?")) {
+      // setTodos(todos.filter((_, i) => i !== index));
+      const newTodos = [...todos];
+      newTodos.splice(index, 1);
+      setTodos(newTodos);
+    }
   };
 
   return (
@@ -18,9 +27,9 @@ function App() {
       <h1>ToDo App</h1>
       <p>Let's get started!</p>
       <h2>{dayjs().format("dddd, D MMM")}</h2>
-      <Form onSubmit={handleNewTodo} />
+      <Form onSubmit={newTodo} />
       <Dashboard todos={todos} />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} onDelete={deleteTodo} />
     </div>
   );
 }
