@@ -13,6 +13,17 @@ function App() {
     setTodos([...todos, todo]);
   };
 
+  const completeTodo = (index: number) => {
+    // const newTodos = [...todos];
+    // newTodos[index].isCompleted = !newTodos[index].isCompleted;
+    // setTodos(newTodos);
+    setTodos(
+      todos.map((todo, i) =>
+        i === index ? { ...todo, isCompleted: !todo.isCompleted } : todo
+      )
+    );
+  };
+
   const deleteTodo = (index: number) => {
     if (confirm("Are you sure you want to delete this ToDo?")) {
       // setTodos(todos.filter((_, i) => i !== index));
@@ -25,11 +36,14 @@ function App() {
   return (
     <div>
       <h1>ToDo App</h1>
-      <p>Let's get started!</p>
-      <h2>{dayjs().format("dddd, D MMM")}</h2>
+      <h3>{dayjs().format("dddd, D MMM")}</h3>
       <Form onSubmit={newTodo} />
       <Dashboard todos={todos} />
-      <TodoList todos={todos} onDelete={deleteTodo} />
+      <TodoList
+        todos={todos}
+        onToggleCompletion={completeTodo}
+        onDelete={deleteTodo}
+      />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import ToDoItem from "../todo-item/todo-item";
 
 interface ITodoListProps {
   todos: IToDo[];
+  onToggleCompletion: (index: number) => void;
   onDelete: (index: number) => void;
 }
 
@@ -14,6 +15,7 @@ const TodoList = (props: ITodoListProps) => {
         <ToDoItem
           key={todo.id}
           todo={todo}
+          onToggleCompletion={() => props.onToggleCompletion(index)}
           onDelete={() => props.onDelete(index)}
         />
       ))}
