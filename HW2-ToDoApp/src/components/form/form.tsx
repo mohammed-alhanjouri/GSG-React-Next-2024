@@ -28,7 +28,7 @@ const Form = (props: IFormProps) => {
   return (
     <form className="form-container" onSubmit={onFormSubmit}>
       <input type="text" name="taskTitle" placeholder="Type your ToDo.." />
-      <div>
+      <div className="isUrgent-check">
         <label htmlFor="isUrgent">Is Urgent?</label>
         <input type="checkbox" name="isUrgent" />
       </div>

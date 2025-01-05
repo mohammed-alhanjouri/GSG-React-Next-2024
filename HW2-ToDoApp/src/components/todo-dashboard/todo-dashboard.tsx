@@ -8,23 +8,18 @@ interface ITodoListProps {
 const Dashboard = (props: ITodoListProps) => {
   return (
     <div className="dashboard-container">
-      <div>
-        <span style={{ fontWeight: "bold" }}>{props.todos.length}</span>
-        <span>Created Tasks</span>
+      <div className="dashboard-data created">
+        <p>{props.todos.length}</p>
+        <h4>Created Tasks</h4>
       </div>
-      <div>
-        <div>
-          <span style={{ fontWeight: "bold" }}>
-            {props.todos.filter((todos) => todos.isUrgent).length}
-          </span>
-          <span>Urgent Tasks</span>
-        </div>
-        <div>
-          <span style={{ fontWeight: "bold" }}>
-            {props.todos.filter((todos) => todos.isCompleted).length}
-          </span>
-          <span>Completed Tasks</span>
-        </div>
+
+      <div className="dashboard-data urgent">
+        <p>{props.todos.filter((todos) => todos.isUrgent).length}</p>
+        <h4>Urgent Tasks</h4>
+      </div>
+      <div className="dashboard-data done">
+        <p>{props.todos.filter((todos) => todos.isCompleted).length}</p>
+        <h4>Completed Tasks</h4>
       </div>
     </div>
   );

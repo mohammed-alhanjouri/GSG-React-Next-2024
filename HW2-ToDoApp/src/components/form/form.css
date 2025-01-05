@@ -1,5 +1,37 @@
 .form-container{
-    border: 1px solid black;
-    margin: 20px;
-    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.form-container input[type="text"]{
+  width: 90%;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.isUrgent-check{
+  font-size: 1.1rem;
+}
+.form-container input[type="submit"]{
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.form-container input[type="submit"]:hover{
+  background-color: #2563DC;
+  transform: scale(1.02);
 }

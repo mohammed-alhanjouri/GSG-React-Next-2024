@@ -1,5 +1,39 @@
 .dashboard-container{
-    border: 1px solid black;
-    margin: 20px;
-    padding: 10px;
+    display: flex;
+    background-color: white;
+    gap: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+.dashboard-data{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-radius: 8px;
+    width: 32%;
+    padding: 15px;
+}
+.dashboard-data h4{
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+.dashboard-data p{
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.dashboard-data.created{
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+.dashboard-data.urgent{
+    background-color: #ffe6e6;
+    color: #721c24;
+}
+.dashboard-data.done{
+    background-color: #d7fbd9;
+    color: #155724;
 }

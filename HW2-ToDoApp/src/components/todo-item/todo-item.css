@@ -1,5 +1,28 @@
-.item-container{
-    border: 1px solid black;
-    margin: 20px;
-    padding: 10px;
+.item-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    margin: 15px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.2rem;
+}
+
+.item-container:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.item-container svg {
+    margin-left: 10px;
+}
+
+.item-container.done {
+    text-decoration: line-through;
+    color: #999;
+}
+  
+.item-container.urgent {
+    border-bottom: 2px solid red;
+    background-color: #ffefef;
 }
